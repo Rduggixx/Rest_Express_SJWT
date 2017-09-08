@@ -1,0 +1,24 @@
+{
+  "name": "node-token-jwt",
+  "version": "1.0.0",
+  "description": "create secure api for mongodb",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "[mock]",
+    "\u001b'[[secure-api]",
+    "[express]",
+    "[nodejs]"
+  ],
+  "author": "Fabrizio Catapano",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "jsonwebtoken": "^7.4.3",
+    "mongoose": "^4.11.10",
+    "morgan": "^1.8.2"
+  }
+}
