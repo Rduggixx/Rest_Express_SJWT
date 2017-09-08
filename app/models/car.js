@@ -14,7 +14,10 @@ module.exports = mongoose.model('automobile', new Schema({
     marca:{type:String,enum:["fiat","lancia","alfaromeo","volkswagen","audi","bmw"]},
     modello:String,
     allestimento:String,
+<<<<<<< HEAD
     tipologia:{type:String,enum:["nuovo","usato","km0"]},
+=======
+>>>>>>> 5ecec663ac77d49e8430628d8ad5406948d82b38
     parti:[Schema.Types.ObjectId],
     prop:[properties]
 }, { collection: 'automobile' }));

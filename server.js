@@ -43,6 +43,7 @@ app.get('/', function(req, res) {
 //API for setup new user
 app.get('/setup', function(req, res) {
 
+<<<<<<< HEAD
 
     var email = req.body.email || req.query.email;
         if (email) {
@@ -54,11 +55,16 @@ app.get('/setup', function(req, res) {
                 });
             }
 
+=======
+>>>>>>> 5ecec663ac77d49e8430628d8ad5406948d82b38
     // create a sample user
     var nick = new User({
         name: 'Nick1',
         password: 'password',
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5ecec663ac77d49e8430628d8ad5406948d82b38
         admin: true
     });
 
@@ -75,11 +81,19 @@ app.get('/setup', function(req, res) {
 // route to authenticate a user (POST http://localhost:8080/api/authenticate)
 apiRoutes.post('/authenticate', function(req, res) {
 
+<<<<<<< HEAD
     console.log(req.body.name|| req.query.name);
 
     // find the user
     User.findOne({
         name: req.query.name
+=======
+    console.log(req.body.name);
+
+    // find the user
+    User.findOne({
+        name: req.body.name
+>>>>>>> 5ecec663ac77d49e8430628d8ad5406948d82b38
     }, function(err, user) {
 
         if (err) throw err;
@@ -89,7 +103,11 @@ apiRoutes.post('/authenticate', function(req, res) {
         } else if (user) {
 
             // check if password matches
+<<<<<<< HEAD
             if (user.password != req.query.password) {
+=======
+            if (user.password != req.body.password) {
+>>>>>>> 5ecec663ac77d49e8430628d8ad5406948d82b38
                 res.json({ success: false, message: 'Authentication failed. Wrong password.' });
             } else {
 
@@ -182,6 +200,7 @@ apiRoutes.get('/CarsByUser', function(req, res) {
             tmp.cars=[];
             if (tmp.car){
                 for (var i = 0; i < tmp.car.length; i++) {
+<<<<<<< HEAD
                     var obj = tmp.car[i];
                     console.log(obj);
 
@@ -197,6 +216,11 @@ apiRoutes.get('/CarsByUser', function(req, res) {
                     });
 
                 }
+=======
+                    tmp.cars.push(tmp.car[i]);
+                }
+                res.json(tmp.cars);
+>>>>>>> 5ecec663ac77d49e8430628d8ad5406948d82b38
 
 
             }else{
@@ -204,6 +228,7 @@ apiRoutes.get('/CarsByUser', function(req, res) {
                     success: false,
                     message: 'No cars associated'
                 });
+<<<<<<< HEAD
 
 
 
@@ -214,6 +239,31 @@ apiRoutes.get('/CarsByUser', function(req, res) {
 
 
 });
+=======
+            }
+        }
+    });
+});
+
+
+apiRoutes.get("/getCar",function(req,res){
+
+    var obj =req.body.carid||req.query.carid;
+
+    Car.findOne({_id:obj},function(err,car){
+        if(err) throw err;
+        if(!car){
+            res.json({success: false, message: 'No car for user'});
+        }else if(car){
+            res.json(car);
+
+        }
+    });
+
+});
+
+
+>>>>>>> 5ecec663ac77d49e8430628d8ad5406948d82b38
 
 
 
